@@ -20,17 +20,17 @@ public class Game implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-	
+
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
 	private String platforms;
 	private Double score;
 	private String imgUrl;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 
@@ -89,11 +89,11 @@ public class Game implements Serializable {
 	public void setPlatforms(String platforms) {
 		this.platforms = platforms;
 	}
-	
+
 	public Double getScore() {
 		return score;
 	}
-	
+
 	public void setScore(Double score) {
 		this.score = score;
 	}
