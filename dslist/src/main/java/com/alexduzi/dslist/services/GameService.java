@@ -9,6 +9,7 @@ import com.alexduzi.dslist.dto.GameDTO;
 import com.alexduzi.dslist.dto.GameMinDTO;
 import com.alexduzi.dslist.entities.Game;
 import com.alexduzi.dslist.exceptions.NotFoundException;
+import com.alexduzi.dslist.projections.GameMinProjection;
 import com.alexduzi.dslist.repositories.GameRepository;
 
 @Service
@@ -28,4 +29,10 @@ public class GameService {
 
 		return new GameDTO(result);
     }
+
+	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	public List<GameMinDTO> findByList(Long listId) {
+		List<GameMinProjection> list =  gameRepository.searchByList(listId);
+		return list.stream().map(GameMinDTO::new).toList();
+	} 
 }
